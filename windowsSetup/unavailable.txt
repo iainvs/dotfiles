@@ -1,0 +1,47 @@
+Davinci Resolve
+Adobe LRC
+Adobe PS
+AMD Radeon Software
+Intel® Graphics Command Center
+Dolby Audio
+Realtek Audio Control
+Web Media Extensions
+HEIF Image Extension
+Raw Image Extension
+WebP Image Extension
+AV1 Video Extension
+AVC Encoder Video Extension
+MPEG-2 Video Extension
+VP9 Video Extensions
+Windows Application Compatibility Enhancements
+DirectX
+DirectX
+Microsoft Edge
+Microsoft .Net Native Framework Package 2.2
+Microsoft .Net Native Framework Package 2.2
+Microsoft .Net Native Runtime Package 2.2
+Microsoft .Net Native Runtime Package 2.2
+Microsoft Visual C++ 2012 UWP Desktop Runtime Package
+Microsoft Visual C++ 2012 UWP Desktop Runtime Package
+Microsoft Visual C++ 2013 UWP Desktop Runtime Package
+Microsoft Visual C++ 2013 UWP Desktop Runtime Package
+Microsoft Visual C++ 2015 UWP Runtime Package
+Microsoft Visual C++ 2015 UWP Runtime Package
+WindowsAppRuntime.1.4
+WindowsAppRuntime.1.4
+WindowsAppRuntime.1.5
+WindowsAppRuntime.1.5
+WindowsAppRuntime.1.6
+WindowsAppRuntime.1.6
+WindowsAppRuntime.1.7
+WindowsAppRuntime.1.7
+Microsoft.Office.ActionsServer
+OfficePushNotificationsUtility
+Windows Security
+Store Experience Host
+Windows Advanced Settings
+Microsoft Photos
+Windows Calculator
+Windows Notepad
+Microsoft Store
+Cross Device Experience Host
