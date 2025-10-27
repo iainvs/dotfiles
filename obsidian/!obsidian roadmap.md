@@ -26,9 +26,6 @@
 25. Omnisearch
 26. Obsidian Icon Folder
 27. Quickadd
-### Themes
-1. Vanilla AMOLED
-2. Primary
 
 ### Snippets
 1. Colored sidebar folders
@@ -46,7 +43,7 @@
 - [ ] Desmos graphs, Desmos geometry, Ketcher chemistry, drawings, and circuit creator
 - [ ] Dedicated keyboard for math
 - [ ] Blank lines generator
-- [ ] Rounded image corners and embedded documents
+- [x] Rounded image corners and embedded documents
 - [x] Removed tag background
 - [x] No link icons
 - [x] Yellow strikethrough text
@@ -70,7 +67,6 @@
 - [ ] [Widgetly](https://www.widgetly.co/)
 - [ ] [Blocs](https://blocs.me/)
 - [ ] [Chartbase](https://notion2charts.com/)
-- [ ] 
 - [x] Centralized theme color
 - [ ] Canvas with support for drawing(black, gray, light gray, blue, indigo, light blue, gray, violet, red, orange, yellow, brown), multiple shapes(squircle, circle, diamond, pill, cloud, pentagon, parallelogram, trapezoid, triangle, arrows, stars, and tickboxes) with support for all forms of transformation, border types(solid, dotted, dashed), layers, sticky notes, 
 		![[Screenshot_2025-04-24-12-03-30-461_com.google.android.youtube-edit.jpg]]
@@ -83,5 +79,3 @@
 5. Fleeting
 6. Daily
 7. Archives
-
-**BuJo**
