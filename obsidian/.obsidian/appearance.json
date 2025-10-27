@@ -1,3 +1,10 @@
 {
-  "cssTheme": "Obsidian gruvbox"
+  "cssTheme": "Obsidian gruvbox",
+  "enabledCssSnippets": [
+    "print"
+  ],
+  "theme": "obsidian",
+  "showRibbon": false,
+  "interfaceFontFamily": "",
+  "textFontFamily": ""
 }
