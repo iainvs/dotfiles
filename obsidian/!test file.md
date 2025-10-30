@@ -86,6 +86,7 @@ Footnote reference[1].
 | tr2, td1 | td2 | td3 |
 | tr3, td4 | td5 | td6 |
 | tr4, td7 | td8 | td9 |
+
 `backtick`
 ```js
 function fancyAlert(arg) {
@@ -102,4 +103,5 @@ Comment Block
 ---
 
 [^1]: test
-[^2]: gusto ko
+[^2]: test2
+
