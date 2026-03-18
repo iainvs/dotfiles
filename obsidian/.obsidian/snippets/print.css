@@ -1,4 +1,11 @@
 @media print {
+
+	body {
+		--accent-h: 0; 
+    	--accent-s: 0%;
+    	--accent-l: 0%;
+	}
+
 	h1:first-of-type {
 		column-span: all !important;
 		text-align: center !important;

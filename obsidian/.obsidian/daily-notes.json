@@ -1,5 +1,4 @@
 {
   "template": "/",
-  "format": "MMM. DD, Y",
-  "autorun": true
+  "format": "MMM. DD, Y"
 }

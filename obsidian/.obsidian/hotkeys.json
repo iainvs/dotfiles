@@ -40,14 +40,6 @@
       "key": "."
     }
   ],
-  "workspace:export-pdf": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "P"
-    }
-  ],
   "obsidian-excalidraw-plugin:save": [],
   "workspace:split-horizontal": [
     {
@@ -56,15 +48,6 @@
         "Mod"
       ],
       "key": "ArrowDown"
-    }
-  ],
-  "workspace:split-vertical": [
-    {
-      "modifiers": [
-        "Alt",
-        "Mod"
-      ],
-      "key": "ArrowLeft"
     }
   ],
   "app:go-back": [
@@ -152,6 +135,40 @@
         "Shift"
       ],
       "key": "P"
+    }
+  ],
+  "workspace:split-vertical": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "ArrowRight"
+    }
+  ],
+  "obsidian-book-search-plugin:open-book-search-modal": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "B"
+    }
+  ],
+  "obsidian-git:commit-push-specified-message": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "P"
+    }
+  ],
+  "obsidian-git:pull": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "U"
     }
   ]
 }
