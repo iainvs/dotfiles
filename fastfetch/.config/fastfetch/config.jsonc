@@ -1,0 +1,87 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "logo": {
+    "source": "Almalinux",
+    "color": {
+      "1": "38;2;7;102;120", // red
+      "2": "yellow", // yellow
+      "3": "blue", // blue
+      "4": "38;2;211;134;155", // green
+      "5": "38;2;177;98;134" // cyan
+    },
+    "padding": {
+      "top": 0,
+      "left": 0,
+      "right": 4
+    }
+  },
+  "display": {
+    "separator": " → ",
+    "color": {
+      "keys": "yellow",
+      "title": "yellow",
+      "separator": "yellow"
+    },
+    "size": {
+      "ndigits": 4 // digit sizes, 4 decimal places
+    }
+  },
+
+  "modules": [
+    {
+      "type": "title",
+      "fqdn": true
+    },
+
+    {
+      "type": "separator",
+      "string": "—"
+    },
+
+    {
+      "type": "os"
+    },
+
+    {
+      "type": "host"
+    },
+
+    {
+      "type": "uptime"
+    },
+
+    {
+      "type": "display"
+    },
+
+    {
+      "type": "cpu",
+      "temp": true
+    },
+    {
+      "type": "gpu",
+      "temp": true
+    },
+    {
+      "type": "memory"
+    },
+    {
+      "type": "swap"
+    },
+    {
+      "type": "disk"
+    },
+    {
+      "type": "localip",
+      "showPrefixLen": false
+    },
+    {
+      "type": "battery"
+    },
+
+    "break",
+    {
+      "type": "colors"
+    }
+  ]
+}

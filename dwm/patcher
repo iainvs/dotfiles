@@ -1,0 +1,91 @@
+#!/bin/bash
+# dwm-patch.sh — patch and install dwm/st/dmenu
+# Usage: ./patcher.sh [\033[0;33mdwm\033[0m|\033[0;32mst\033[0m|\033[0;31mdmenu\033[0m]
+
+set -euo pipefail
+
+# ── Config ────────────────────────────────────────────────────────────────────
+DWM_DIR="$HOME/dwm"
+
+# ── Helpers ───────────────────────────────────────────────────────────────────
+err()  { echo -e "\033[0;31m[ERR]\033[0m $*" >&2; exit 1; }
+info() { echo -e "\033[0;32m[INFO]\033[0m $*"; }
+warn() { echo -e "\033[0;33m[WARN]\033[0m $*"; }
+
+# ── Arg check ─────────────────────────────────────────────────────────────────
+VALID_TARGETS=("dwm" "st" "dmenu")
+
+if [[ $# -ne 1 ]]; then
+    echo "Usage: $(basename "$0") [$(IFS='|'; echo "${VALID_TARGETS[*]}")]"
+    exit 1
+fi
+
+TARGET="$1"
+
+if [[ ! " ${VALID_TARGETS[*]} " =~ " ${TARGET} " ]]; then
+    err "Unknown target '$TARGET'. Use: ${VALID_TARGETS[*]}"
+fi
+
+# ── Paths ─────────────────────────────────────────────────────────────────────
+TARGET_DIR="$DWM_DIR/$TARGET"
+PATCH_DIR="$TARGET_DIR/patches"
+BACKUP_DIR="$TARGET_DIR/backups"
+TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+
+# ── Sanity checks ─────────────────────────────────────────────────────────────
+[[ -d "$TARGET_DIR" ]]  || err "Dir not found: $TARGET_DIR"
+[[ -f "$TARGET_DIR/config.h" || -f "$TARGET_DIR/config.def.h" ]] \
+    || warn "No config.h found — sure this is a source dir?"
+
+command -v wget  &>/dev/null || err "wget not installed"
+command -v patch &>/dev/null || err "patch not installed"
+command -v make  &>/dev/null || err "make not installed"
+
+# ── Setup dirs ────────────────────────────────────────────────────────────────
+mkdir -p "$PATCH_DIR" "$BACKUP_DIR"
+
+# ── Backup binary ─────────────────────────────────────────────────────────────
+if [[ -f "$TARGET_DIR/$TARGET" ]]; then
+    BACKUP_FILE="$BACKUP_DIR/${TARGET}.bak.$TIMESTAMP"
+    cp "$TARGET_DIR/$TARGET" "$BACKUP_FILE"
+    info "Backup saved → $BACKUP_FILE"
+else
+    info "No existing binary to back up — skipping"
+fi
+
+# ── Clean build ───────────────────────────────────────────────────────────────
+info "Cleaning $TARGET..."
+cd "$TARGET_DIR"
+make clean | while read -r line; do info "$line"; done
+
+# ── Fetch patch ───────────────────────────────────────────────────────────────
+read -rp "[INPUT] Patch URL: " URL
+[[ -z "$URL" ]] && err "No URL provided"
+
+FILE=$(basename "$URL")
+PATCH_FILE="$PATCH_DIR/$FILE"
+
+info "Downloading $FILE..."
+wget -q -c "$URL" -O "$PATCH_FILE" || err "Download failed: $URL"
+info "Saved → $PATCH_FILE"
+
+# ── Apply patch ───────────────────────────────────────────────────────────────
+info "Applying patch..."
+if patch -p1 -i "$PATCH_FILE"; then
+    info "Patch applied cleanly"
+else
+    warn "Patch conflicts detected — check .rej files in $TARGET_DIR"
+    warn "Resolve manually, then run: sudo make clean install"
+    exit 1
+fi
+
+# ── Build + install ───────────────────────────────────────────────────────────
+info "Building $TARGET..."
+if sudo make clean install; then
+    echo ""
+    info "Done. $TARGET patched and installed."
+    info "Patch: $FILE"
+    info "Backup: $BACKUP_FILE"
+else
+    err "Build failed — patch may need manual fixes in config.h"
+fi
