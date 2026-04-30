@@ -60,11 +60,13 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-b", "-nb", black, "-nf", white, "-sb", dilaw, "-sf", black, NULL };
 static const char *stcmd[]  = { "st", "-e", "sh", "-c", "fastfetch; exec $SHELL", NULL };
+static const char *nautilus[] = { "nautilus", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } }, // start dmenu
 	{ MODKEY,                       XK_q,      spawn,          {.v = stcmd } }, //start st
+  { MODKEY,                       XK_e,      spawn,          {.v = nautilus } }, //start explorer
   { MODKEY,                       XK_r,      quit,           {0} }, // reload dwm in config
 	{ MODKEY,                       XK_b,      togglebar,      {0} }, // toggle bar
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } }, // cycle focus forward
