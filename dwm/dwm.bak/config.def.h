@@ -40,9 +40,10 @@ static const int refreshrate = 30;  /* refresh rate (per second) for client move
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[T]",      tile },    /* first entry is default */
-	{ "[F]",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
+	{ "[F]",      NULL },   
+	{ "[T]",      tile },   
+
 };
 
 /* key definitions */
@@ -77,9 +78,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} }, // grow master
 	{ MODKEY,                       XK_Return, zoom,           {0} }, // zoom to master
 	{ MODKEY,                       XK_Tab,    view,           {0} }, // view previous tag
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} }, // change to tile 
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} }, // change to fload
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} }, //change to monocle
+	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[0]} }, //change to monocle
+	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} }, // change to float
+	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[2]} }, // change to tile 
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} }, // toggle floating
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } }, // view all tags
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } }, // tag client to all tags
@@ -87,6 +88,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } }, // focus next monitor
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } }, // send to prev monitor
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } }, // send to next monitor
+	{ MODKEY,                       XK_c,      killclient,     {0} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -96,7 +98,6 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY,                       XK_c,      killclient,     {0} },
 };
 
 /* button definitions */
